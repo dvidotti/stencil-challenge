@@ -10,12 +10,19 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   TabActivateEvent,
 } from './components/app-tab1/app-tab1';
+import {
+  CheckTabInfo,
+} from './components/my-tabs/my-tabs';
+import {
+  YearEvent,
+} from './components/year-picker/year-picker';
 
 export namespace Components {
   interface AppTab1 {
     'active': boolean;
     'name': string;
   }
+  interface DateForm {}
   interface MyComponent {
     /**
     * The first name
@@ -30,10 +37,10 @@ export namespace Components {
     */
     'middle': string;
   }
-  interface MyTabs {}
-  interface YearPicker {
-    'year': number;
+  interface MyTabs {
+    'tabs': string;
   }
+  interface YearPicker {}
 }
 
 declare global {
@@ -43,6 +50,12 @@ declare global {
   var HTMLAppTab1Element: {
     prototype: HTMLAppTab1Element;
     new (): HTMLAppTab1Element;
+  };
+
+  interface HTMLDateFormElement extends Components.DateForm, HTMLStencilElement {}
+  var HTMLDateFormElement: {
+    prototype: HTMLDateFormElement;
+    new (): HTMLDateFormElement;
   };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
@@ -64,6 +77,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'app-tab1': HTMLAppTab1Element;
+    'date-form': HTMLDateFormElement;
     'my-component': HTMLMyComponentElement;
     'my-tabs': HTMLMyTabsElement;
     'year-picker': HTMLYearPickerElement;
@@ -76,6 +90,7 @@ declare namespace LocalJSX {
     'name'?: string;
     'onTabActivate'?: (event: CustomEvent<TabActivateEvent>) => void;
   }
+  interface DateForm {}
   interface MyComponent {
     /**
     * The first name
@@ -90,13 +105,17 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
-  interface MyTabs {}
+  interface MyTabs {
+    'onCheckTabInfo'?: (event: CustomEvent<CheckTabInfo>) => void;
+    'tabs'?: string;
+  }
   interface YearPicker {
-    'year'?: number;
+    'onYearValue'?: (event: CustomEvent<YearEvent>) => void;
   }
 
   interface IntrinsicElements {
     'app-tab1': AppTab1;
+    'date-form': DateForm;
     'my-component': MyComponent;
     'my-tabs': MyTabs;
     'year-picker': YearPicker;
@@ -110,6 +129,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'app-tab1': LocalJSX.AppTab1 & JSXBase.HTMLAttributes<HTMLAppTab1Element>;
+      'date-form': LocalJSX.DateForm & JSXBase.HTMLAttributes<HTMLDateFormElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
       'my-tabs': LocalJSX.MyTabs & JSXBase.HTMLAttributes<HTMLMyTabsElement>;
       'year-picker': LocalJSX.YearPicker & JSXBase.HTMLAttributes<HTMLYearPickerElement>;

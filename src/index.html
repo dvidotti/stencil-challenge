@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+  <title>Yoobic Date Picker</title>
 
   <script type="module" src="/build/datetimepicker.esm.js"></script>
   <script nomodule src="/build/datetimepicker.js"></script>
@@ -11,14 +11,11 @@
 </head>
 <body>
 
-  <!-- <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  <app-test kind="info" text="Text from html"></app-test>
-  <app-test kind="success" text="Second text"></app-test>
-  <app-test kind="error"></app-test> -->
-  <my-tabs active-tab="Year">
+<date-form>
+  <my-tabs active-tab="year">
     <year-picker name="year"></year-picker>
   </my-tabs>
-  <my-tabs active-tab="Month">
+  <my-tabs tabs="month">
     <app-tab1 name="Jan">Jan</app-tab1>
     <app-tab1 name="Feb">Feb</app-tab1>
     <app-tab1 name="Mar">Mar</app-tab1>
@@ -33,41 +30,41 @@
     <app-tab1 name="Dec">Dec</app-tab1>
   </my-tabs>
   
-  <my-tabs active-tab="Day">
-    <app-tab1 name="one"> 1</app-tab1>
-    <app-tab1 name="two"> 2</app-tab1>
-    <app-tab1 name="three"> 3</app-tab1>
-    <app-tab1 name="four"> 4</app-tab1>
-    <app-tab1 name="five"> 5</app-tab1>
-    <app-tab1 name="six"> 6</app-tab1>
-    <app-tab1 name="seven"> 7</app-tab1>
-    <app-tab1 name="eight"> 8</app-tab1>
-    <app-tab1 name="nine"> 9</app-tab1>
-    <app-tab1 name="ten">10</app-tab1>
-    <app-tab1 name="eleven">11</app-tab1>
-    <app-tab1 name="twelve">12</app-tab1>
-    <app-tab1 name="thirteen">13</app-tab1>
-    <app-tab1 name="fourteen">14</app-tab1>
-    <app-tab1 name="fifteen">15</app-tab1>
-    <app-tab1 name="sixteen">16</app-tab1>
-    <app-tab1 name="seventenn">17</app-tab1>
-    <app-tab1 name="eightenn">18</app-tab1>
-    <app-tab1 name="nineteen">19</app-tab1>
-    <app-tab1 name="twenty">20</app-tab1>
-    <app-tab1 name="twenty-one">21</app-tab1>
-    <app-tab1 name="twenty-two">22</app-tab1>
-    <app-tab1 name="twenty-three">23</app-tab1>
-    <app-tab1 name="twenty-four">24</app-tab1>
-    <app-tab1 name="twenty-five">25</app-tab1>
-    <app-tab1 name="twenty-six">26</app-tab1>
-    <app-tab1 name="twenty-seven">27</app-tab1>
-    <app-tab1 name="twenty-eight">28</app-tab1>
-    <app-tab1 name="twenty-nine">29</app-tab1>
-    <app-tab1 name="thirty">30</app-tab1>
-    <app-tab1 name="thirty-one">31</app-tab1>
+  <my-tabs tabs="day">
+    <app-tab1 name="1"> 1</app-tab1>
+    <app-tab1 name="2"> 2</app-tab1>
+    <app-tab1 name="3"> 3</app-tab1>
+    <app-tab1 name="4"> 4</app-tab1>
+    <app-tab1 name="5"> 5</app-tab1>
+    <app-tab1 name="6"> 6</app-tab1>
+    <app-tab1 name="7"> 7</app-tab1>
+    <app-tab1 name="8"> 8</app-tab1>
+    <app-tab1 name="9"> 9</app-tab1>
+    <app-tab1 name="10">10</app-tab1>
+    <app-tab1 name="11">11</app-tab1>
+    <app-tab1 name="12">12</app-tab1>
+    <app-tab1 name="13">13</app-tab1>
+    <app-tab1 name="14">14</app-tab1>
+    <app-tab1 name="15">15</app-tab1>
+    <app-tab1 name="16">16</app-tab1>
+    <app-tab1 name="17">17</app-tab1>
+    <app-tab1 name="18">18</app-tab1>
+    <app-tab1 name="19">19</app-tab1>
+    <app-tab1 name="20">20</app-tab1>
+    <app-tab1 name="21">21</app-tab1>
+    <app-tab1 name="22">22</app-tab1>
+    <app-tab1 name="23">23</app-tab1>
+    <app-tab1 name="24">24</app-tab1>
+    <app-tab1 name="25">25</app-tab1>
+    <app-tab1 name="26">26</app-tab1>
+    <app-tab1 name="27">27</app-tab1>
+    <app-tab1 name="28">28</app-tab1>
+    <app-tab1 name="29">29</app-tab1>
+    <app-tab1 name="30">30</app-tab1>
+    <app-tab1 name="31">31</app-tab1>
   </my-tabs>
 
-  <my-tabs active-tab="Hour">
+  <my-tabs tabs="hour">
     <app-tab1 name="12AM">12AM</app-tab1>
     <app-tab1 name="1AM"> 1AM</app-tab1>
     <app-tab1 name="2AM"> 2AM</app-tab1>
@@ -93,12 +90,7 @@
     <app-tab1 name="10PM">10PM</app-tab1>
     <app-tab1 name="11PM">11PM</app-tab1>
   </my-tabs>
-  <!-- <script>
-    function handleTabActivate (e) {
-      console.log(e.detail.name)
-    }
-    document.addEventListener("tabActivate", handleTabActivate)
-  </script>   -->
+</date-form>
   
 </body>
 </html>

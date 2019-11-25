@@ -1,5 +1,9 @@
-import { Component, Prop, h, } from '@stencil/core';
+import { Component, h, State, Event, EventEmitter, Listen} from '@stencil/core';
 
+
+export interface YearEvent {
+  year: number;
+}
 
 @Component({
   tag:'year-picker',
@@ -9,7 +13,14 @@ import { Component, Prop, h, } from '@stencil/core';
 
 
 export class YearPicker {
-  @Prop() year: number = 2019;
+  @State() year: number = 2019
+ 
+  @Event() yearValue: EventEmitter<YearEvent>;
+
+  @Listen("click")
+  handleYearChange() {
+    this.yearValue.emit({year:this.year})  
+  }
 
 
   getYearBack = () => {

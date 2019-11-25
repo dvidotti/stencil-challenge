@@ -1,7 +1,10 @@
-import { Component, Prop, h, Listen, Element } from '@stencil/core';
-import {TabActivateEvent} from '../app-tab1/app-tab1'
+import { Component, h, Listen, Element, Event, EventEmitter, Prop} from '@stencil/core';
+import { TabActivateEvent } from '../app-tab1/app-tab1';
 
-
+export interface CheckTabInfo {
+  name:string;
+  type:string;
+}
 
 @Component({
   tag:'my-tabs',
@@ -11,19 +14,23 @@ import {TabActivateEvent} from '../app-tab1/app-tab1'
 
 
 export class AppMyTabs {
-  
+  @Prop() tabs: string;
   @Element() element;
 
+  @Event() checkTabInfo: EventEmitter<CheckTabInfo>
+
   @Listen("tabActivate")
-  handleTabActivate (e: CustomEvent<TabActivateEvent>) {
-    const headings = [...this.element.querySelector(".my-tabs-container").children]
-                         .filter(child => child.tagName.toLowerCase() === "app-tab1")
-    headings.forEach(heading => {
-      if(heading.name !== e.detail.name) {
-        heading.active = false;
+  handleTabActivate (activeChild: CustomEvent<TabActivateEvent>) {
+    const myTabsChildren = [...this.element.querySelector(".my-tabs-container").children]
+    myTabsChildren.forEach(child => {
+      if(child.name !== activeChild.detail.name) {
+        child.active = false;
+      } else if(child.active === true) {
+        this.checkTabInfo.emit({name:child.name, type:this.tabs})
       }
     })
   }
+
 
   render() {
     return (
