@@ -1,0 +1,23 @@
+.year-container {
+  display:flex;
+  flex-wrap:wrap;
+  /* justify-content: space-between; */
+  width: 100%;
+}
+
+.year-input {
+  font-size:2em;
+  color:lightseagreen;
+  padding: 0 1em;
+ 
+}
+
+
+button {
+  font-size:1.3em;
+  padding: 4px 10px ;
+  cursor:pointer;
+  color: rgb(62, 26, 26);
+  background-color:gray;
+  margin: 1em .5em;
+}

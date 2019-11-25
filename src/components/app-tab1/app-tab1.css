@@ -1,0 +1,12 @@
+.my-tab, .my-tab-active {
+  padding:10px 14px;
+  cursor: pointer;
+  font-size:1.2em;
+  font-family: Verdana;
+}
+
+.my-tab-active {
+  color: lightseagreen; 
+  font-weight:800;
+}
+  

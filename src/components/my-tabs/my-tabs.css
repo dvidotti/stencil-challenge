@@ -1,0 +1,7 @@
+.my-tabs-container {
+  display: flex;
+  flex-wrap: wrap; 
+  background-color: lightgray;
+  border:.5px solid white;
+}
+
